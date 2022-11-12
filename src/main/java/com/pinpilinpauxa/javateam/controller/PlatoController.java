@@ -42,6 +42,7 @@ public class PlatoController {
         plato.setDescripcion(platoDetails.getDescripcion());
         plato.setKcal(platoDetails.getKcal());
         plato.setUnidades(platoDetails.getUnidades());
+        plato.setTipo(platoDetails.getTipo());
         plato.setNombre_t(platoDetails.getNombre_t());
 
         Plato updatedPlato = platoRepository.save(plato);

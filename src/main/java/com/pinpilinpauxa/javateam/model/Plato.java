@@ -1,31 +1,30 @@
 package com.pinpilinpauxa.javateam.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "plato")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Plato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_p;
+    private int id_p;
 
     private String nombre_p;
     private String descripcion;
     private int kcal;
     private int unidades;
+    private String tipo;
     private String nombre_t;
 
-    public Long getId_p() {
+    public int getId_p() {
         return id_p;
     }
 
-    public void setId_p(Long id_p) {
+    public void setId_p(int id_p) {
         this.id_p = id_p;
     }
 
@@ -59,6 +58,14 @@ public class Plato {
 
     public void setUnidades(int unidades) {
         this.unidades = unidades;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getNombre_t() {
