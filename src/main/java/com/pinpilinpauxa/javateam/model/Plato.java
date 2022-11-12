@@ -1,28 +1,31 @@
 package com.pinpilinpauxa.javateam.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "comments")
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Plato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id_p;
 
-    private int id_p;
     private String nombre_p;
     private String descripcion;
     private int kcal;
     private int unidades;
     private String nombre_t;
 
-    public int getId_p() {
+    public Long getId_p() {
         return id_p;
     }
 
-    public void setId_p(int id_p) {
+    public void setId_p(Long id_p) {
         this.id_p = id_p;
     }
 
