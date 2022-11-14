@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div th:fragment="header" class="container-fluid px-0">
+            <nav>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pedido.html">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cliente.html">Customers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plato.html">Dishes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</html>

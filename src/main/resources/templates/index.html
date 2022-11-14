@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible">
+        <title>Pinpilinpauxa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div th:replace="header :: header">&nbsp;</div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div class="title">
+                            <h2 class="mb-5">Bienvenid@ a ¡PARA CASA!</h2>
+                            <p>La aplicación que deja tu comida en la mismisima puerta de tu casa.</p>
+                            <p>A elegir entre miles de menús y restaurantes y al mejor precio.</p>
+                            <p>¿A qué esperas?</p>
+                        </div>
+                    </div>
+                    <div class="cards-container">
+                        <div class="card" style="width: 300px;">
+                            <img src="../../static/images/menu.png" class="card-img-top img-fluid" alt="Menu image">
+                            <div class="card-body">
+                                <h5 class="card-title">Manage Menu</h5>
+                                <a href="/menu" class="btn btn-primary">See more...</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 300px;">
+                            <img src="../../static/images/smartphone.png" class="card-img-top img-fluid" alt="Order image">
+                            <div class="card-body">
+                                <h5 class="card-title">Manage Order</h5>
+                                <a href="/pedido" class="btn btn-primary">See more...</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="../../static/images/client.jpg" class="card-img-top" alt="Client image">
+                            <div class="card-body">
+                                <h5 class="card-title">Manage Client</h5>
+                                <a href="/cliente" class="btn btn-primary">See more...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="footer :: footer">&nbsp;</div>
+    </body>
+</html>
