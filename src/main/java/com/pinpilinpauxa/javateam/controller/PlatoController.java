@@ -6,8 +6,7 @@ import com.pinpilinpauxa.javateam.repository.PlatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/api")
@@ -16,9 +15,16 @@ public class PlatoController {
     @Autowired
     PlatoRepository platoRepository;
 
-    @GetMapping("/plato")
+    /* @GetMapping("/plato")
     public List<Plato> getAllPlatos() {
         return platoRepository.findAll();
+    } */
+
+    @GetMapping("/plato")
+    public ModelAndView getAllPlatos() {
+        ModelAndView mav = new ModelAndView("plato");
+        mav.addObject("dishes", platoRepository.findAll());
+        return mav;
     }
 
     @PostMapping("/plato")

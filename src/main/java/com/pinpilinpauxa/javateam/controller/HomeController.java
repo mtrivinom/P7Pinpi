@@ -9,4 +9,24 @@ public class HomeController {
     String index() {
         return "index";
     }
+
+    @GetMapping("/menu")
+    String menu() {
+        return "menu";
+    }
+
+    @GetMapping("/pedido")
+    String pedido() {
+        return "pedido";
+    }
+
+    @GetMapping("/cliente")
+    String cliente() {
+        return "cliente";
+    }
+
+    @GetMapping("/plato")
+    String plato() {
+        return "plato";
+    }
 }
