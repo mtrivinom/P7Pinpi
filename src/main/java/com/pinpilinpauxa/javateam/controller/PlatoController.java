@@ -5,13 +5,12 @@ import com.pinpilinpauxa.javateam.model.Plato;
 import com.pinpilinpauxa.javateam.repository.PlatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class PlatoController {
-
     @Autowired
     PlatoRepository platoRepository;
 

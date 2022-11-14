@@ -14,11 +14,47 @@
         <div th:replace="fragments/header :: header">&nbsp;</div>
 
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h4>Dishes page!</h4>
-                </div>
+            <h3 class="section-title">List Dishes</h3>
+
+            <div class="create-button">
+                <button type="button" class="btn btn-primary">
+                    Create
+                </button>
             </div>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Kcal</th>
+                        <th>Units</th>
+                        <th>Type</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="dish: ${dishes}">
+                        <td th:text="${dish.nombre_p}" />
+                        <td th:text="${dish.descripcion}" />
+                        <td th:text="${dish.kcal}" />
+                        <td th:text="${dish.unidades}" />
+                        <td th:text="${dish.tipo}" />
+                        <td>
+                            <button type="button" class="btn btn-primary">
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div th:replace="fragments/footer :: footer">&nbsp;</div>

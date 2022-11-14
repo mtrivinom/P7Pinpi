@@ -1,39 +1,47 @@
 nav {
-background-color: blue;
-height: 80px;
-font-size: x-large;
+    background-color: blue;
+    height: 80px;
+    font-size: x-large;
 }
 
 .nav-item a{
-color: white;
-margin-top: 10px;
-font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .title {
-font-family: "Comic Sans MS", "Comic Sans", cursive;
-color: grey;
-text-align: center;
-text-shadow: 1px 1px #28a4b3;
-margin-top: 50px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: grey;
+    text-align: center;
+    text-shadow: 1px 1px #28a4b3;
+    margin-top: 50px;
 }
 
 .title p {
-font-size: larger;
+    font-size: larger;
 }
 
 .cards-container {
-display: inline-flex;
-width: 100%;
+    display: inline-flex;
+    width: 100%;
 }
 
 .card{
-margin: 50px 50px;
-align: center;
+    margin: 50px 50px;
+    align: center;
 }
 
 .final {
-text-align: center;
-margin-top: 50px;
-font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.section-title {
+    margin: 36px 0;
+}
+
+.create-button {
+    margin-bottom: 16px;
 }
