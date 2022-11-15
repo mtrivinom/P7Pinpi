@@ -3,6 +3,7 @@ package com.pinpilinpauxa.javateam.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.persistence.Id;
 
 @Entity
 @Table(name = "plato")
@@ -10,8 +11,8 @@ import javax.persistence.*;
 public class Plato {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_p;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nombre_p;
     private String descripcion;
@@ -20,12 +21,12 @@ public class Plato {
     private String tipo;
     private String nombre_t;
 
-    public int getId_p() {
-        return id_p;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_p(int id_p) {
-        this.id_p = id_p;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre_p() {

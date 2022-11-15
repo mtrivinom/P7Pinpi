@@ -17,9 +17,7 @@
             <h3 class="section-title">List Dishes</h3>
 
             <div class="create-button">
-                <button type="button" class="btn btn-primary">
-                    Create
-                </button>
+                <a class="btn btn-primary btn-xs" th:href="@{/form}">Create</a>
             </div>
 
             <table class="table table-bordered table-striped">
@@ -42,8 +40,8 @@
                         <td th:text="${dish.kcal}" />
                         <td th:text="${dish.unidades}" />
                         <td th:text="${dish.tipo}" />
-                        <td>
-                            <button type="button" class="btn btn-primary">
+                       <td>
+                            <button type="button" class="btn btn-info">
                                 Edit
                             </button>
                         </td>

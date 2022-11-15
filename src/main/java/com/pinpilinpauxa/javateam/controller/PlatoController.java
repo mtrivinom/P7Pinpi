@@ -7,17 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Map;
 
 @Controller
 public class PlatoController {
     @Autowired
     PlatoRepository platoRepository;
-
-    /* @GetMapping("/plato")
-    public List<Plato> getAllPlatos() {
-        return platoRepository.findAll();
-    } */
 
     @GetMapping("/plato")
     public ModelAndView getAllPlatos() {
@@ -26,22 +24,31 @@ public class PlatoController {
         return mav;
     }
 
-    @PostMapping("/plato")
-    public Plato createPlato(@RequestBody Plato plato) {
-        return platoRepository.save(plato);
+    @RequestMapping(value="/form")
+    public String createPlato(Map<String, Object> model) {
+        Plato plato = new Plato();
+        model.put("plato", plato);
+        return "form";
+    }
+
+    @RequestMapping(value="/form", method=RequestMethod.POST)
+    public String save(Plato plato, SessionStatus status) {
+        platoRepository.save(plato);
+        status.setComplete();
+        return "redirect:plato";
     }
 
     @GetMapping("/plato/{id}")
-    public Plato getPlatoById(@PathVariable(value = "id") Long id_p) {
-        return platoRepository.findById(id_p)
-                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id_p));
+    public Plato getPlatoById(@PathVariable(value = "id") Long id) {
+        return platoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id));
     }
 
     @PutMapping("/plato/{id}")
-    public Plato updatePlato(@PathVariable(value = "id") Long id_p, @RequestBody Plato platoDetails) {
+    public Plato updatePlato(@PathVariable(value = "id") Long id, @RequestBody Plato platoDetails) {
 
-        Plato plato = platoRepository.findById(id_p)
-                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id_p));
+        Plato plato = platoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id));
 
         plato.setNombre_p(platoDetails.getNombre_p());
         plato.setDescripcion(platoDetails.getDescripcion());
@@ -55,9 +62,9 @@ public class PlatoController {
     }
 
     @DeleteMapping("/plato/{id}")
-    public ResponseEntity<?> deletePlato(@PathVariable(value = "id") Long id_p) {
-        Plato plato = platoRepository.findById(id_p)
-                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id_p));
+    public ResponseEntity<?> deletePlato(@PathVariable(value = "id") Long id) {
+        Plato plato = platoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id));
 
         platoRepository.delete(plato);
 
