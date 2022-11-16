@@ -15,7 +15,7 @@
 
 <div class="container">
     <h3 class="section-title">Create Dishes</h3>
-    <form th:action="@{/form}" th:object="${plato}" method="post">
+    <form th:action="@{/createDishForm}" th:object="${plato}" method="post">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-6">
@@ -57,10 +57,10 @@
             </div>
         </div>
     </form>
-<p>foooooorm</p>
 
 </div>
 
 <div th:replace="fragments/footer :: footer">&nbsp;</div>
+
 </body>
 </html>

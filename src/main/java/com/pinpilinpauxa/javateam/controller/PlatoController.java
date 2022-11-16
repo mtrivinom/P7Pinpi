@@ -24,14 +24,14 @@ public class PlatoController {
         return mav;
     }
 
-    @RequestMapping(value="/form")
+    @RequestMapping(value="/createDishForm")
     public String createPlato(Map<String, Object> model) {
         Plato plato = new Plato();
         model.put("plato", plato);
-        return "form";
+        return "createDishForm";
     }
 
-    @RequestMapping(value="/form", method=RequestMethod.POST)
+    @RequestMapping(value="/createDishForm", method=RequestMethod.POST)
     public String save(Plato plato, SessionStatus status) {
         platoRepository.save(plato);
         status.setComplete();
