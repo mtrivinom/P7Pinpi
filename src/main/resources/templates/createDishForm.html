@@ -33,14 +33,14 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Kcal</label>
             <div class="col-sm-6">
-                <input type="number" th:field="*{kcal}"/>
+                <input type="number" min="0" th:field="*{kcal}"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Units</label>
             <div class="col">
-                <input type="number" th:field="*{unidades}"/>
+                <input type="number" min="0" th:field="*{unidades}"/>
             </div>
         </div>
 

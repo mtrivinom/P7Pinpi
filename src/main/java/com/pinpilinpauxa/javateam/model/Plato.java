@@ -12,7 +12,7 @@ public class Plato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_p;
 
     private String nombre_p;
     private String descripcion;
@@ -21,12 +21,12 @@ public class Plato {
     private String tipo;
     private String nombre_t;
 
-    public Long getId() {
-        return id;
+    public Long getId_p() {
+        return id_p;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_p(Long id_p) {
+        this.id_p = id_p;
     }
 
     public String getNombre_p() {

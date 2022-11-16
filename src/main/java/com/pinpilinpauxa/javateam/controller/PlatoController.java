@@ -38,17 +38,17 @@ public class PlatoController {
         return "redirect:plato";
     }
 
-    @GetMapping("/plato/{id}")
-    public Plato getPlatoById(@PathVariable(value = "id") Long id) {
-        return platoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id));
+    @GetMapping("/plato/{id_p}")
+    public Plato getPlatoById(@PathVariable(value = "id") Long id_p) {
+        return platoRepository.findById(id_p)
+                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id_p));
     }
 
-    @PutMapping("/plato/{id}")
-    public Plato updatePlato(@PathVariable(value = "id") Long id, @RequestBody Plato platoDetails) {
+    @PutMapping("/plato/{id_p}")
+    public Plato updatePlato(@PathVariable(value = "id") Long id_p, @RequestBody Plato platoDetails) {
 
-        Plato plato = platoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id));
+        Plato plato = platoRepository.findById(id_p)
+                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id_p));
 
         plato.setNombre_p(platoDetails.getNombre_p());
         plato.setDescripcion(platoDetails.getDescripcion());
@@ -61,10 +61,10 @@ public class PlatoController {
         return updatedPlato;
     }
 
-    @DeleteMapping("/plato/{id}")
-    public ResponseEntity<?> deletePlato(@PathVariable(value = "id") Long id) {
-        Plato plato = platoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id));
+    @DeleteMapping("/plato/{id_p}")
+    public ResponseEntity<?> deletePlato(@PathVariable(value = "id") Long id_p) {
+        Plato plato = platoRepository.findById(id_p)
+                .orElseThrow(() -> new ResourceNotFoundException("Plato", "id", id_p));
 
         platoRepository.delete(plato);
 
