@@ -13,4 +13,5 @@ public interface PlatoRepository extends JpaRepository<Plato, Long> {
     public List<Plato> findAll();
 
     public Plato save(Plato plato);
+
 }

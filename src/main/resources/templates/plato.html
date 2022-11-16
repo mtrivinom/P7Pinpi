@@ -46,9 +46,7 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger">
-                                Delete
-                            </button>
+                            <a th:href="@{/deleteDish(dishId=${dish.id_p})}" class="btn btn-danger ml-2">Delete</a>
                         </td>
                     </tr>
                 </tbody>

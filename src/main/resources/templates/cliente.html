@@ -11,12 +11,42 @@
 </head>
 
 <body>
-<div th:replace="fragments/header :: header">&nbsp;</div>
+<div th:replace="fragments/header :: header"> </div>
 
+<div class="container-fluid text-center"><h3>Manage Customers</h3></div>
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h4>Customers page!</h4>
+
+            <div class="create-button">
+                <a class="btn btn-primary btn-xs" th:href="@{/client/new}">Create</a>
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Direction</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="cliente: ${listClients}">
+                    <td th:text="${cliente.name}"/>
+                    <td th:text="${cliente.email}"/>
+                    <td th:text="${cliente.direction}"/>
+                    <td th:text="${cliente.phone}"/>
+
+                    <td><a class="btn btn-info" th:href="@{'client/edit/' + ${cliente.id}}" th:text="'Edit'"></a></td>
+                    <td><a class="btn btn-danger" th:href="@{'client/delete/' + ${cliente.id}}" th:text="'Delete'"></a></td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>

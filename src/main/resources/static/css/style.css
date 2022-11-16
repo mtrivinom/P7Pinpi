@@ -23,6 +23,11 @@ nav {
     margin-top: 50px;
 }
 
+h3 {
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
+
 .title p {
     font-size: larger;
 }

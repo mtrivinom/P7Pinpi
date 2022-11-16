@@ -1,62 +1,64 @@
 package com.pinpilinpauxa.javateam.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+
 
 @Entity
+@Table(name="cliente")
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private int id_c;
+    @Column(nullable=false)
+    private String name;
 
-    private String nombre_c;
-    private String direccion_c;
-    private String telefono_c;
+    private String email;
 
-    public Cliente() {
+    private String direction;
+    private String phone;
 
+    public Integer getId() {
+        return id;
     }
 
-    public Cliente(String nombre_c, String direccion_c, String telefono_c) {
-        this.nombre_c = nombre_c;
-        this.direccion_c = direccion_c;
-        this.telefono_c = telefono_c;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setId_c(int id_c) {
-        this.id_c = id_c;
+    public String getName() {
+        return name;
     }
 
-    public int getId_c() {
-        return id_c;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNombre_c() {
-        return nombre_c;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNombre_c(String nombre_c) {
-        this.nombre_c = nombre_c;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getDireccion_c() {
-        return direccion_c;
+    public String getDirection() {
+        return direction;
     }
 
-    public void setDireccion_c(String direccion_c) {
-        this.direccion_c = direccion_c;
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 
-    public String getTelefono_c() {
-        return telefono_c;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefono_c(String telefono_c) {
-        this.telefono_c = telefono_c;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }
