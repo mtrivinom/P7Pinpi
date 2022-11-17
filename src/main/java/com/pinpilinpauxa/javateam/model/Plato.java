@@ -25,7 +25,6 @@ public class Plato {
 
     @NotEmpty
     private String tipo;
-    //private String nombre_t;
 
     public Long getId_p() {
         return id_p;
@@ -74,13 +73,5 @@ public class Plato {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    /*public String getNombre_t() {
-        return nombre_t;
-    }
-
-    public void setNombre_t(String nombre_t) {
-        this.nombre_t = nombre_t;
-    }*/
 
 }

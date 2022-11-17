@@ -14,7 +14,7 @@
 <div th:replace="fragments/header :: header">&nbsp;</div>
 
 <div class="container">
-    <h3 class="section-title">Create Dishes</h3>
+    <h3 class="section-title">Manage Dishes</h3>
     <form th:action="@{/createDishForm}" th:object="${plato}" method="post" style="max-width: 500px; margin: 0 auto;">
 
        <input type="hidden" th:field="*{id_p}"/>

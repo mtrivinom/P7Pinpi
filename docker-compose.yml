@@ -1,0 +1,36 @@
+
+services:
+  mysql-8:
+    image: mysql
+    restart: always
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: basedatosparacasa
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+    networks:
+      - backend
+    volumes:
+      - "data-db-mysql:/var/lib/mysql"
+  javateam-service:
+    build: .
+    ports:
+      - "8080:8080"
+    command: java -jar -Dspring.profiles.active=docker target/javateam.jar
+    networks:
+      - backend
+
+    depends_on:
+      - mysql-8
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-8:3306/basedatosparacasa?useSSL=false&allowPublicKeyRetrieval=True&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+volumes:
+  data-db-mysql:
+
+networks:
+  backend:

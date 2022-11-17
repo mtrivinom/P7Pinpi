@@ -7,3 +7,4 @@ COPY pom.xml .
 RUN mvn -e -B dependency:resolve
 COPY src ./src
 RUN mvn clean package -Dmaven.test.skip=true
+
