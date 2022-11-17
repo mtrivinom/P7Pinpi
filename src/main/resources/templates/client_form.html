@@ -20,44 +20,39 @@
         <input type="hidden" th:field="*{id}"/>
 
         <div class="border border-secondary rounded p-3">
-
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Name</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{name}" class="form-control" required/>
-                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                    <input type="text" th:field="*{name}" class="form-control" id="name" th:errorclass="'form-control alert-danger'"/>
+                    <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="email" th:field="*{email}" class="form-control"/>
-                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                    <input type="text" th:field="*{email}" class="form-control" id="email" th:errorclass="'form-control alert-danger'"/>
+                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Direction</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{direction}" class="form-control"/>
-                    <span th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}" class="text-danger"></span>
+                    <input type="text" th:field="*{direction}" class="form-control" id="direction" th:errorclass="'form-control alert-danger'"/>
+                    <span class="text-danger" th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Phone</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{phone}" class="form-control"/>
-                    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
+                    <input type="text" th:field="*{phone}" class="form-control" id="phone" th:errorclass="'form-control alert-danger'"/>
+                    <span class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
                 </div>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary m-2">Create</button>
-                <button type="button" class="btn btn-secondary m-2">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
-
         </div>
     </form>
-
     <div th:replace="fragments/footer :: footer">&nbsp;</div>
-
 </body>
 </html>

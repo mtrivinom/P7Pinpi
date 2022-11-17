@@ -33,20 +33,17 @@
                     <th>Delete</th>
                 </tr>
                 </thead>
-
                 <tbody>
                 <tr th:each="cliente: ${listClients}">
                     <td th:text="${cliente.name}"/>
                     <td th:text="${cliente.email}"/>
                     <td th:text="${cliente.direction}"/>
                     <td th:text="${cliente.phone}"/>
-
                     <td><a class="btn btn-info" th:href="@{'client/edit/' + ${cliente.id}}" th:text="'Edit'"></a></td>
-                    <td><a class="btn btn-danger" th:href="@{'client/delete/' + ${cliente.id}}" th:text="'Delete'"></a></td>
+                    <td><a class="btn btn-danger" th:href="@{'client/delete/' + ${cliente.id}}" th:text="'Delete'" onclick="return confirm('Are you sure you want to delete this customer?')"></a></td>
                 </tr>
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>

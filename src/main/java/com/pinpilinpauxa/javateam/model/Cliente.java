@@ -1,21 +1,24 @@
 package com.pinpilinpauxa.javateam.model;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name="cliente")
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable=false)
+    @NotEmpty
     private String name;
 
+    @NotEmpty
+    @Email
     private String email;
 
     private String direction;
