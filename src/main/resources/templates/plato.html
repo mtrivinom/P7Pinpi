@@ -40,11 +40,7 @@
                         <td th:text="${dish.kcal}" />
                         <td th:text="${dish.unidades}" />
                         <td th:text="${dish.tipo}" />
-                       <td>
-                            <button type="button" class="btn btn-info">
-                                Edit
-                            </button>
-                        </td>
+                        <td><a class="btn btn-info" th:href="@{'dish/edit/' + ${dish.id_p}}" th:text="'Edit'"></a></td>
                         <td>
                             <a th:href="@{/deleteDish(dishId=${dish.id_p})}" class="btn btn-danger ml-2">Delete</a>
                         </td>

@@ -16,6 +16,9 @@
 <div class="container">
     <h3 class="section-title">Create Dishes</h3>
     <form th:action="@{/createDishForm}" th:object="${plato}" method="post">
+
+       <input type="hidden" th:field="*{id_p}"/>
+
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-6">
