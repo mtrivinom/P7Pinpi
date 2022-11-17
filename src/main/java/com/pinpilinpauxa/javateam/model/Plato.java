@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "plato")
@@ -14,12 +15,17 @@ public class Plato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_p;
 
+    @NotEmpty
     private String nombre_p;
+
+    @NotEmpty
     private String descripcion;
     private int kcal;
     private int unidades;
+
+    @NotEmpty
     private String tipo;
-    private String nombre_t;
+    //private String nombre_t;
 
     public Long getId_p() {
         return id_p;
@@ -69,12 +75,12 @@ public class Plato {
         this.tipo = tipo;
     }
 
-    public String getNombre_t() {
+    /*public String getNombre_t() {
         return nombre_t;
     }
 
     public void setNombre_t(String nombre_t) {
         this.nombre_t = nombre_t;
-    }
+    }*/
 
 }
