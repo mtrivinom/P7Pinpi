@@ -55,3 +55,8 @@ h3 {
 .create-button {
     margin-bottom: 16px;
 }
+
+.btn-logout {
+    margin-right: 20px;
+    margin-top: -50px;
+}
