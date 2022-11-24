@@ -1,11 +1,10 @@
 package com.pinpilinpauxa.javateam.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "menu")
 public class Menu {
 
     @Id
@@ -13,6 +12,9 @@ public class Menu {
 
     private int id_m;
     private double precio;
+
+    @ManyToMany(mappedBy = "menu")
+    private List<Pedido> pedidoList;
 
     public int getId_m() {
         return id_m;
