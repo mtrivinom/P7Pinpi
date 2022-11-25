@@ -1,6 +1,7 @@
 package com.pinpilinpauxa.javateam.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "users")
@@ -15,7 +16,7 @@ public class User {
 
     @Column(name = "usuario", nullable = false, length = 20)
     private String usuario;
-
+    @Email
     @Column(nullable = false, unique = true, length = 45)
     private String email;
 

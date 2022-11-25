@@ -2,6 +2,7 @@ package com.pinpilinpauxa.javateam.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "menu")
@@ -12,9 +13,10 @@ public class Menu {
 
     private int id_m;
     private double precio;
-
-    @ManyToMany(mappedBy = "menu")
-    private List<Pedido> pedidoList;
+/*
+    @ManyToMany(mappedBy = "menus")
+    private Set<Pedido> pedidos;
+*/
 
     public int getId_m() {
         return id_m;
@@ -31,5 +33,6 @@ public class Menu {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
 
 }

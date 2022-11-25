@@ -22,11 +22,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
+
         return new CustomUserDetailsService();
     }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 
@@ -46,18 +48,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+                .authorizeRequests()
                 .antMatchers("/").authenticated()
                 .antMatchers("/menu").authenticated()
                 .antMatchers("/pedido").authenticated()
                 .antMatchers("/cliente").authenticated()
                 .antMatchers("/plato").authenticated()
-                .and().formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/")
-                .permitAll()
-                .and().logout()
-                .logoutSuccessUrl("/login").permitAll();
+                .and()
+                    .formLogin()
+                    .loginPage("/login")
+   //                 .usernameParameter("email")
+                    .defaultSuccessUrl("/")
+                    .failureUrl("/login?error=true")
+                    .permitAll()
+                .and()
+                    .logout()
+                    .logoutSuccessUrl("/login").permitAll();
 
         http.csrf().disable();
     }

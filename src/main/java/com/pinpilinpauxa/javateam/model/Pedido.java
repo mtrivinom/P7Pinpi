@@ -3,9 +3,10 @@ package com.pinpilinpauxa.javateam.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "Pedido")
+@Table(name = "pedido")
 public class Pedido {
 
     @Id
@@ -20,14 +21,15 @@ public class Pedido {
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User usuario;
 
-    @JoinTable (name = "menus_pedidos",
-    joinColumns = @JoinColumn(name = "id_menu", nullable = false),
-    inverseJoinColumns = @JoinColumn(name="id_pedido", nullable = false)
-    )
+
+/*
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Menu> menuList;
-
-
+    @JoinTable (name = "menus_pedidos",
+        joinColumns = @JoinColumn(name = "id_menu", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="id_pedido", nullable = false)
+    )
+   private Set<Menu> menus;
+*/
     public Long getId_p() {
         return id_p;
     }
@@ -44,11 +46,8 @@ public class Pedido {
         this.fecha = fecha;
     }
 
-    public User getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(User usuario) {
-        this.usuario = usuario;
+
+    public Pedido() {
     }
 }
