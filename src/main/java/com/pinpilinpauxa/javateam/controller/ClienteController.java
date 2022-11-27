@@ -57,7 +57,6 @@ public class ClienteController {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
             return "redirect:/cliente";
         }
-
     }
 
     @GetMapping("/client/delete/{id}")
@@ -69,5 +68,4 @@ public class ClienteController {
         }
         return "redirect:/cliente";
     }
-
 }

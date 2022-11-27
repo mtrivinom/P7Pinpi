@@ -27,7 +27,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Direction</th>
+                    <th>Address</th>
                     <th>Phone</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -37,7 +37,7 @@
                 <tr th:each="cliente: ${listClients}">
                     <td th:text="${cliente.name}"/>
                     <td th:text="${cliente.email}"/>
-                    <td th:text="${cliente.direction}"/>
+                    <td th:text="${cliente.address}"/>
                     <td th:text="${cliente.phone}"/>
 
                     <td><a class="btn btn-info" th:href="@{'client/edit/' + ${cliente.id}}" th:text="'Edit'"></a></td>

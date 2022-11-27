@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+º<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Platos</title>
@@ -35,10 +35,10 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Direction</label>
+                <label class="col-sm-4 col-form-label">Address</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{direction}" class="form-control" id="direction" th:errorclass="'form-control alert-danger'"/>
-                    <span class="text-danger" th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}"></span>
+                    <input type="text" th:field="*{address}" class="form-control" id="address" th:errorclass="'form-control alert-danger'"/>
+                    <span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
                 </div>
             </div>
             <div class="form-group row">
