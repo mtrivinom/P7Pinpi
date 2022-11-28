@@ -33,20 +33,15 @@ public class Pedido {
     public Long getId_p() {
         return id_p;
     }
-
     public void setId_p(Long id_p) {
         this.id_p = id_p;
     }
-
     public Date getFecha() {
         return fecha;
     }
-
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-
 
     public Pedido() {
     }
