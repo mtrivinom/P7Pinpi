@@ -2,6 +2,8 @@ package com.pinpilinpauxa.javateam.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -23,47 +25,36 @@ public class Admin {
     @Column(name = "password", nullable = false, length = 64)
     private String password;
 
-
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getUsuario() {
         return usuario;
     }
-
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-
 
     public Admin(Long id, String email, String password, String nombre, String usuario) {
         this.id = id;
@@ -80,7 +71,18 @@ public class Admin {
         this.usuario = usuario;
     }
 
+    private Collection<Role> roles;
     public Admin() {
     }
 
+    public void setRoles(List<org.springframework.context.annotation.Role> asList) {
+    }
+    public void setEnabled(boolean b) {
+    }
+    public boolean isEnabled() {
+        return false;
+    }
+    public Collection<org.springframework.context.annotation.Role> getRoles() {
+        return null;
+    }
 }

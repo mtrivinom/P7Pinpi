@@ -1,7 +1,10 @@
 package com.pinpilinpauxa.javateam.security;
 
-import com.pinpilinpauxa.javateam.model.User;
-import com.pinpilinpauxa.javateam.repository.UserRepository;
+import com.pinpilinpauxa.javateam.model.Privilege;
+import com.pinpilinpauxa.javateam.model.Admin;
+import com.pinpilinpauxa.javateam.repository.PrivilegeRepository;
+import com.pinpilinpauxa.javateam.repository.RoleRepository;
+import com.pinpilinpauxa.javateam.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Role;
@@ -9,6 +12,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import javax.transaction.Transactional;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class SetupDataLoader implements
@@ -17,7 +22,7 @@ public class SetupDataLoader implements
     boolean alreadySetup = false;
 
     @Autowired
-    private UserRepository userRepository;
+    private AdminRepository adminRepository;
 
     @Autowired
     private RoleRepository roleRepository;
@@ -27,6 +32,7 @@ public class SetupDataLoader implements
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private Object email;
 
     @Override
     @Transactional
@@ -44,15 +50,16 @@ public class SetupDataLoader implements
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
         createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
 
-        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-        User user = new User();
-        user.setFirstName("Test");
-        user.setLastName("Test");
-        user.setPassword(passwordEncoder.encode("test"));
-        user.setEmail("test@test.com");
+        Role adminRole = RoleRepository.findByName("ROLE_ADMIN");
+        Admin user = new Admin();
+        user.setId(1L);
+        user.setEmail("admin1@gmail.com");
+        user.setPassword(passwordEncoder.encode("12345678"));
+        user.setNombre("administrador1");
+        user.setUsuario("administrador1");
         user.setRoles(Arrays.asList(adminRole));
         user.setEnabled(true);
-        userRepository.save(user);
+        AdminRepository.save(user);
 
         alreadySetup = true;
     }
@@ -60,23 +67,19 @@ public class SetupDataLoader implements
     @Transactional
     Privilege createPrivilegeIfNotFound(String name) {
 
-        Privilege privilege = privilegeRepository.findByName(name);
+        Privilege privilege = PrivilegeRepository.findByName(name);
         if (privilege == null) {
-            privilege = new Privilege(name);
-            privilegeRepository.save(privilege);
+            privilege = new Privilege();
         }
         return privilege;
     }
 
     @Transactional
     Role createRoleIfNotFound(
-            String name, Collection<Privilege> privileges) {
+            String name, List<Privilege> privileges) {
 
-        Role role = roleRepository.findByName(name);
+        Role role = RoleRepository.findByName(name);
         if (role == null) {
-            role = new Role(name);
-            role.setPrivileges(privileges);
-            roleRepository.save(role);
         }
         return role;
     }
