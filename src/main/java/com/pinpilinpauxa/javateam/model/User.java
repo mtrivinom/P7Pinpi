@@ -23,6 +23,8 @@ public class User {
     @Column(name = "password", nullable = false, length = 64)
     private String password;
 
+    @ManyToOne
+    public Role rol;
 
 
     public Long getId() {
