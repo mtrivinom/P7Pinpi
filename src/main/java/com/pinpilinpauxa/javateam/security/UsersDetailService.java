@@ -31,7 +31,7 @@ public class UsersDetailService implements UserDetailsService {
 
     @Autowired
     private MessageSource messages;
- 
+
     @Autowired
     private RoleRepository roleRepository;
 
