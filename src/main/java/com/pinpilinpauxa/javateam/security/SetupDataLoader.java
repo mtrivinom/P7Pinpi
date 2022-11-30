@@ -49,7 +49,7 @@ public class SetupDataLoader implements
                 readPrivilege, writePrivilege);
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
         createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
-
+        
         Role adminRole = RoleRepository.findByName("ROLE_ADMIN");
         Admin user = new Admin();
         user.setId(1L);
