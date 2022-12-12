@@ -49,6 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+
                 .authorizeRequests()
                 .antMatchers("/").authenticated()
                 .antMatchers("/menu").authenticated()
@@ -56,9 +57,35 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/cliente").authenticated()
                 .antMatchers("/plato").authenticated()
                 .and()
+                .formLogin()
+                .loginPage("/login")
+                //.usernameParameter("email")
+                .defaultSuccessUrl("/")
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login").permitAll();
+
+        http.csrf().disable();
+
+
+
+             /*   .authorizeRequests()
+
+             .antMatchers("/").authenticated()
+                .antMatchers("/menu").authenticated()
+                .antMatchers("/pedido").authenticated()
+                //.antMatchers("/cliente").authenticated()
+             //  .antMatchers("/plato").authenticated()
+                .antMatchers("/plato").hasRole("USER")
+                .antMatchers("/cliente").hasRole("ADMIN")
+
+
+
+                .and()
                     .formLogin()
                     .loginPage("/login")
-   //                 .usernameParameter("email")
                     .defaultSuccessUrl("/")
                     .failureUrl("/login?error=true")
                     .permitAll()
@@ -66,6 +93,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .logoutSuccessUrl("/login").permitAll();
 
-        http.csrf().disable();
+        http.csrf().disable();*/
+            /*
+                .authorizeRequests()
+                .antMatchers("/plato").hasRole("ADMIN")
+                .and()
+                .formLogin();*/
+
+       //Código original del main
+
+
+
     }
 }
