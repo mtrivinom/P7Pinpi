@@ -14,17 +14,13 @@ public class Plato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_p;
-
-    @NotEmpty
-    private String nombre_p;
-
+    @Column(name ="nombre", nullable = false)
+    private String name;
     @NotEmpty
     private String descripcion;
     private int kcal;
     private int unidades;
 
-    @NotEmpty
-    private String tipo;
 
     public Long getId_p() {
         return id_p;
@@ -34,12 +30,12 @@ public class Plato {
         this.id_p = id_p;
     }
 
-    public String getNombre_p() {
-        return nombre_p;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre_p(String nombre_p) {
-        this.nombre_p = nombre_p;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescripcion() {
@@ -66,12 +62,5 @@ public class Plato {
         this.unidades = unidades;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
 }
