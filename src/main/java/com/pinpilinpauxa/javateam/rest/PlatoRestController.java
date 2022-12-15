@@ -38,5 +38,17 @@ public class PlatoRestController {
         return this.platoService.obtenerPorId(id);
     }
 
-
+    @DeleteMapping("/eliminar/{id}")
+    public String eliminarPorId(@PathVariable("id") Long id){
+        boolean ok = this.platoService.eliminarPlato(id);
+        if (ok){
+            return "Se eliminó el usuario con id " + id;
+        }else{
+            return "No pudo eliminar el usuario con id " + id;
+        }
+    }
+    @PutMapping("/actualizar/{id}")
+    public Plato actualizarPlato(@PathVariable int id ,@RequestBody Plato plato) {
+        return platoService.guardarPlato(plato);
+    }
 }
