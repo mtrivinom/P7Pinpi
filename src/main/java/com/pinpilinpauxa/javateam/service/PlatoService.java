@@ -13,19 +13,6 @@ public class PlatoService {
 
     @Autowired
     private PlatoRepository platoRepository;
-/*
-    public PlatoService(PlatoRepository platoRepository) {
-        this.platoRepository = platoRepository;
-    }
-
-    public Plato get(Long id_p) throws UserNotFoundException {
-        Optional<Plato> result = platoRepository.findById(id_p);
-
-        if (result.isPresent()) {
-            return result.get();
-        }
-        throw new UserNotFoundException("The user has been saved successfully.");
-    }*/
 
     public List<Plato> obtenerPlatos(){
         return (List<Plato>) platoRepository.findAll();

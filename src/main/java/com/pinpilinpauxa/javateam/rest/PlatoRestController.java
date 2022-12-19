@@ -42,9 +42,9 @@ public class PlatoRestController {
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.platoService.eliminarPlato(id);
         if (ok){
-            return "Se eliminó el usuario con id " + id;
+            return "Se eliminó el plato con id " + id;
         }else{
-            return "No pudo eliminar el usuario con id " + id;
+            return "No se pudo eliminar el plato con id " + id;
         }
     }
     @PutMapping("/actualizar/{id}")
