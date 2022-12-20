@@ -15,8 +15,7 @@ public class UserService {
         return (List<User>) userRepository.findAll();
     }
     public List<User> obtenerPorNombre(@PathVariable("nombre") String nombre) {
-        return userRepository.findByNombre(nombre);
-    }
+        return userRepository.findByNombre(nombre);  }
     public User guardarUser(User user){
         return userRepository.save(user);
     }

@@ -19,26 +19,23 @@ public class PlatoRestController {
     private PlatoService platoService;
 
     @GetMapping()
-    public List<Plato> allPlatos(){
+    public List<Plato> allPlatos(){ return platoService.obtenerPlatos();    }
 
-        return platoService.obtenerPlatos();
-    }
     @PostMapping("/new")
     public Plato guardarPlato(@RequestBody Plato plato){
         return this.platoService.guardarPlato(plato);
     }
 
-    @GetMapping("/buscar/{name}")
+    @GetMapping("/{name}")
     public List<Plato> findByName(@PathVariable("name") String name) {
-        return this.platoService.obtenerPorNombre(name);
-    }
+        return this.platoService.obtenerPorNombre(name);    }
 
-    @GetMapping("/id/{id_p}")
-    public Optional<Plato> findById(@PathVariable("id_p") Long id){
+    @GetMapping("/id/{id}")
+    public Optional<Plato> findById(@PathVariable("id") Long id){
         return this.platoService.obtenerPorId(id);
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/id/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.platoService.eliminarPlato(id);
         if (ok){
@@ -47,7 +44,7 @@ public class PlatoRestController {
             return "No se pudo eliminar el plato con id " + id;
         }
     }
-    @PutMapping("/actualizar/{id}")
+    @PutMapping("/id/{id}")
     public Plato actualizarPlato(@PathVariable int id ,@RequestBody Plato plato) {
         return platoService.guardarPlato(plato);
     }
